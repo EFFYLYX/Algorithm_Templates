@@ -36,6 +36,10 @@ def binary_search2(arr, target):
         else:
             hi = mid
 
+# nums = [5,7,7,8,8,10], target = 8
+# [5,7,7,8,8,10], 0-5, mid 2, retrieve mid right
+# [8, 8, 10], 3-5, mid 4, retrieve mid right
+# [8, 8], 3-4, mid 3, retrieve mid left
 # return the left_most item equalling to the target
 # result in [0, hi]
 def bisect_left(arr, target, lo, hi):
