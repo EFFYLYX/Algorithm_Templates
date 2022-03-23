@@ -2,6 +2,7 @@
 #
 # Time:  O(n)
 # Space: O(h) h: height of tree
+# 二叉搜索树的中序遍历为 递增序列 
 from collections import deque
 
 
@@ -202,3 +203,20 @@ def level_order_traversal_iteratively(self, root: 'TreeNode'):
         '''
         add level logic here if you need
         '''
+        
+class Solution:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        WHITE, GRAY = 0, 1
+        ans = []
+        stack = [(WHITE, root)]
+        while stack:
+            color, node = stack.pop()
+            if node is None:
+                continue
+            if color == WHITE:
+                stack.append((WHITE, node.right))
+                stack.append((GRAY, node))
+                stack.append((WHITE, node.left))
+            else:
+                ans.append(node.val)
+        return 
