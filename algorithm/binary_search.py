@@ -36,7 +36,7 @@ def binary_search2(arr, target):
         else:
             hi = mid
 
-
+# return the left_most item equalling to the target
 # result in [0, hi]
 def bisect_left(arr, target, lo, hi):
     while lo < hi:
