@@ -238,3 +238,15 @@ class Solution:
             layer = childs
             ans +=1
         return ans
+    
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        def helper(root):
+            if not root:
+                return 0
+            
+            l,r = helper(root.left), helper(root.right)
+            if l <0 or r < 0 or abs(l-r) >1:
+                return -1
+            return max(l,r)+1
+        return helper(root) >= 0
