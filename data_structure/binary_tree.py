@@ -203,7 +203,7 @@ def level_order_traversal_iteratively(self, root: 'TreeNode'):
         '''
         add level logic here if you need
         '''
-        
+// in order traverse        
 class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         WHITE, GRAY = 0, 1
@@ -220,3 +220,21 @@ class Solution:
             else:
                 ans.append(node.val)
         return 
+ 
+// level traverse
+class Solution:
+    def maxDepth(self, root: TreeNode) -> int:
+        if not root:
+            return 0
+        layer = [root]
+        ans = 0
+        while layer:
+            childs = []
+            for node in layer:
+                if node.left:
+                    childs.append(node.left)
+                if node.right:
+                    childs.append(node.right)
+            layer = childs
+            ans +=1
+        return ans
